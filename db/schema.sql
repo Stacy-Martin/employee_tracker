@@ -27,3 +27,6 @@ CREATE TABLE employee (
     FOREIGN KEY (role_id) REFERENCES role(id)
 );
 
+SELECT * FROM employee;
+SELECT * FROM roles;
+SELECT * FROM department;
