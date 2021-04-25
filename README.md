@@ -40,10 +40,14 @@ To contribute to this repository, fork it and submit a pull request for review.
 
 ## Preview
 
-The following screenshot provides a preview of the Note Taker webpage that was generated:
+The following screenshot provides a preview of the Employee Tracker webpage that was generated:
 
 ![](XXXX)
+XXXXXXX
 
+Or check out my demo video at:
+
+XXXXXX
 
 
 Thanks to my study buddies ;) teacher, and incredible TA (Katerina Poulos) for technical assistance - and many others for encouragement! 

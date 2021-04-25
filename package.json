@@ -1,0 +1,20 @@
+{
+  "name": "employee_tracker",
+  "version": "1.0.0",
+  "description": "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)",
+  "main": "connection.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stacy-Martin/employee_tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stacy-Martin/employee_tracker/issues"
+  },
+  "homepage": "https://github.com/Stacy-Martin/employee_tracker#readme"
+}
