@@ -43,7 +43,7 @@ const start = () => {
           connection.end();
       });
   };
- 
+// **********VIEW FUNCTION*******************************************************************
 const viewFunction = async () => {
   await inquirer
     .prompt ({
@@ -64,17 +64,18 @@ const viewFunction = async () => {
     })
 }
 
-const viewEmployees = () => 
-    new Promise ((resolve, reject) => {
-        connection.query(`
-        SELECT CONCAT (employee.first_name, " ", employee.last_name) AS employee, 
+const viewEmployees = () => {
+      const query = 
+        
+        `SELECT 
+        employee.id, employee.first_name, employee.last_name AS employee, 
         role.title, role.salary,department.name AS department, 
-        CONCAT (manager.first_name, " ", manager.last_name) AS manager FROM employee 
+        CONCAT (manager.first_name, ' ', manager.last_name) AS manager FROM employee 
         LEFT JOIN role ON employee.role_id = role.id 
         LEFT JOIN department ON department_id = department.id 
-        LEFT JOIN employee manager on employee.manager_id = manager.id`, 
+        LEFT JOIN employee manager on employee.manager_id = manager.id` 
         
-        (err, res) => {
+        connection.query(query, (err, results) => {
           if (err) {
             console.log(err);
             throw err;
@@ -82,8 +83,23 @@ const viewEmployees = () =>
           console.log(`This is the employees list`);
           const employees = console.table(res);
           resolve (employees);        
-    })
-});
+        })
+      };
+
+// const viewDpts = () =>
+
+// const viewMgrs = () =>
+
+// **********END VIEW FUNCTION*******************************************************************
+
+
+
+
+
+
+
+
+
 
 
   // connect to the mysql server and sql database
