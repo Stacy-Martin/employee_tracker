@@ -21,7 +21,7 @@ To install necessary dependencies, run the following command:
 ~~~
 npm install
 npm install inquirer
-XXXXX - MySQL
+npm install mysql
 ~~~
 
 ## Usage
