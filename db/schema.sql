@@ -4,9 +4,11 @@ CREATE DATABASE employees_db;
 
 USE employees_db;
 
+-- USE OF NOT NULL ??
+
 CREATE TABLE department (
     id INT AUTO_INCREMENT PRIMARY KEY ,
-    name VARCHAR(30)
+    name VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE role (
@@ -14,7 +16,7 @@ CREATE TABLE role (
     title VARCHAR(30),
     salary DECIMAL,
     department_id INT,
-    FOREIGN KEY (department_id) REFERENCES department(id)
+    FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE CASCADE
 );
 
 CREATE TABLE employee (
@@ -24,9 +26,11 @@ CREATE TABLE employee (
     role_id INT,
     manager_id INT,
     FOREIGN KEY (manager_id) REFERENCES employee(id),
-    FOREIGN KEY (role_id) REFERENCES role(id)
+    FOREIGN KEY (role_id) REFERENCES role(id) ON DELETE CASCADE
 );
 
+
+-- IS THIS IN THE RIGHT FILE
 SELECT * FROM employee;
-SELECT * FROM roles;
+SELECT * FROM role;
 SELECT * FROM department;

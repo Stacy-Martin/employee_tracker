@@ -1,7 +1,7 @@
 {
   "name": "employee_tracker",
   "version": "1.0.0",
-  "description": "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)",
+  "description": "Back end app to write an employee database",
   "main": "connection.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/Stacy-Martin/employee_tracker/issues"
   },
-  "homepage": "https://github.com/Stacy-Martin/employee_tracker#readme"
+  "homepage": "https://github.com/Stacy-Martin/employee_tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "dotenv": "^8.2.0",
+    "inquirer": "^8.0.0",
+    "mysql": "^2.18.1"
+  }
 }
