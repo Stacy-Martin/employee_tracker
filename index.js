@@ -25,8 +25,7 @@ const start = () => {
         name: 'startQuestion',
         type: 'list',
         message: 'Would you like to do?',
-        choices: ['View employees, departments or managers', 'Add employee', 'Remove employee', 'Update employee role or manager', 'Exit employee database']
-        // ?? WHERE DOES THIS CONSOLE LOG MESSAGE GO ??
+        choices: ['View employees, departments or managers', 'Add employee', 'Remove employee', 'Update employee role or manager', 'Exit employee database'],
         // console.log('Move up and down to reveal more choices')
       })
       .then((answer) => {
@@ -76,12 +75,13 @@ const viewEmployees = () =>
         LEFT JOIN employee manager on employee.manager_id = manager.id`, 
         
         (err, res) => {
-        if (err) reject (new Error("Error, please restart program", err));  
-        console.log(`This is the employees list`);
-        
-        const employees = console.table(res);
-        
-        resolve (employees);       
+          if (err) {
+            console.log(err);
+            throw err;
+          } 
+          console.log(`This is the employees list`);
+          const employees = console.table(res);
+          resolve (employees);        
     })
 });
 
