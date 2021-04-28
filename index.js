@@ -1,6 +1,6 @@
-// const mysql = require('mysql');
+const mysql = require('mysql');
 const inquirer = require('inquirer');
-// const consoleTable = require('console.table');
+const consoleTable = require('console.table');
 const connection = require('./db/connection');
 
 
@@ -43,7 +43,10 @@ const start = () => {
           connection.end();
       });
   };
+
+
 // **********VIEW FUNCTION*******************************************************************
+
 const viewFunction = async () => {
   await inquirer
     .prompt ({
@@ -64,9 +67,9 @@ const viewFunction = async () => {
     })
 }
 
-const viewEmployees = () => {
+const viewEmployees = () => 
+new Promise ((resolve, reject) => {
       const query = 
-        
         `SELECT 
         employee.id, employee.first_name, employee.last_name AS employee, 
         role.title, role.salary,department.name AS department, 
@@ -74,17 +77,13 @@ const viewEmployees = () => {
         LEFT JOIN role ON employee.role_id = role.id 
         LEFT JOIN department ON department_id = department.id 
         LEFT JOIN employee manager on employee.manager_id = manager.id` 
-        
-        connection.query(query, (err, results) => {
-          if (err) {
-            console.log(err);
-            throw err;
-          } 
+        connection.query(query, (err, res) => {
+          if (err) throw err;
           console.log(`This is the employees list`);
           const employees = console.table(res);
           resolve (employees);        
         })
-      };
+      });
 
 // const viewDpts = () =>
 
