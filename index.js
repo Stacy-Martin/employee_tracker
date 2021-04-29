@@ -1,8 +1,20 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
 const consoleTable = require('console.table');
-const connection = require('./db/connection');
+// const connection = require('./db/connection');
 
+
+var connection = mysql.createConnection({
+  host: "localhost",
+  // Your port; if not 3306
+  port: 3306,
+  // Your username
+  user: "root",
+  // Your password
+  password: "yourRootPassword",
+  database: "employees_db",
+});
+connection.connect();
 
 const header = () => {
 console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
@@ -38,9 +50,9 @@ const start = () => {
           removeEmpFunction();
         } else if (answer.startQuestion === 'Update employee role or manager') {
           updateFunction();
-        } else (answer.startQuestion === 'Exit employee database')
-          console.log('Have a nice day!')
-          connection.end();
+        } else if (answer.startQuestion === 'Exit employee database')
+          console.log('Have a nice day!'),
+          connection.end
       });
   };
 
@@ -71,12 +83,12 @@ const viewEmployees = () =>
 new Promise ((resolve, reject) => {
       const query = 
         `SELECT 
-        employee.id, employee.first_name, employee.last_name AS employee, 
-        role.title, role.salary,department.name AS department, 
-        CONCAT (manager.first_name, ' ', manager.last_name) AS manager FROM employee 
-        LEFT JOIN role ON employee.role_id = role.id 
-        LEFT JOIN department ON department_id = department.id 
-        LEFT JOIN employee manager on employee.manager_id = manager.id` 
+        employee.id, employee.first_name, employee.last_name AS employee FROM employee` 
+        // role.title, role.salary,department.name AS department, 
+        // CONCAT (manager.first_name, ' ', manager.last_name) AS manager FROM employee 
+        // LEFT JOIN role ON employee.role_id = role.id 
+        // LEFT JOIN department ON department_id = department.id 
+        // LEFT JOIN employee manager on employee.manager_id = manager.id` 
         connection.query(query, (err, res) => {
           if (err) throw err;
           console.log(`This is the employees list`);
@@ -102,8 +114,8 @@ new Promise ((resolve, reject) => {
 
 
   // connect to the mysql server and sql database
-connection.connect((err) => {
-  if (err) throw err;
+// connection.connect((err) => {
+//   if (err) throw err;
   // run the start function after the connection is made to prompt the user
   header();
-});
+// });
