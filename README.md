@@ -25,7 +25,7 @@ npm install mysql
 ~~~
 
 ## Usage
-XXXXXXX
+Clone or download the project from Github to your local computer.  From the project directory, `run npm init -y`,` npm install` and then `node ./index.js` to begin with user prompts. 
 
 ## License 
 This project is licensed under the [License: Unlicense](http://unlicense.org/) license.
@@ -42,12 +42,7 @@ To contribute to this repository, fork it and submit a pull request for review.
 
 The following screenshot provides a preview of the Employee Tracker webpage that was generated:
 
-![](XXXX)
-XXXXXXX
-
-Or check out my demo video at:
-
-XXXXXX
+![](https://raw.githubusercontent.com/Stacy-Martin/employee_tracker/main/Assets/Screen%20Shot%202021-04-28%20at%2011.56.13%20PM.png
 
 
 Thanks to my study buddies ;) teacher, and incredible TA (Katerina Poulos) for technical assistance - and many others for encouragement! 
