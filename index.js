@@ -97,25 +97,39 @@ new Promise ((resolve, reject) => {
         })
       });
 
-// const viewDpts = () =>
 
-// const viewMgrs = () =>
+const viewDpts = () => 
+new Promise ((resolve, reject) => {
+      const query = 
+        `SELECT employee.id, CONCAT(first_name,' ',last_name) AS name , role.title as title, department.name as department
+        FROM employees_DB.employee
+        left join role on role_id = role.id
+        left join department on role_id=department.id ` 
+        connection.query(query, (err, res) => {
+          if (err) throw err;
+          console.log(`This is the employees list`);
+          const employees = console.table(res);
+          resolve (employees);        
+        })
+      });
 
-// **********END VIEW FUNCTION*******************************************************************
+const viewMgrs = () => 
+new Promise ((resolve, reject) => {
+      const query = 
+        `SELECT 
+        employee.id, employee.first_name, employee.last_name AS employee, 
+        role.title, role.salary,department.name AS department, 
+        CONCAT (manager.first_name, ' ', manager.last_name) AS manager FROM employee 
+        LEFT JOIN role ON employee.role_id = role.id 
+        LEFT JOIN department ON department_id = department.id 
+        LEFT JOIN employee manager on employee.manager_id = manager.id` 
+        connection.query(query, (err, res) => {
+          if (err) throw err;
+          console.log(`This is the employees list`);
+          const employees = console.table(res);
+          resolve (employees);        
+        })
+      });
 
-
-
-
-
-
-
-
-
-
-
-  // connect to the mysql server and sql database
-// connection.connect((err) => {
-//   if (err) throw err;
-  // run the start function after the connection is made to prompt the user
   header();
-// });
+
